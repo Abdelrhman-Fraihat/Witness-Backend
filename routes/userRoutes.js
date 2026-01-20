@@ -80,7 +80,8 @@ userRouter.get("/crimes/:id", async (req, res) => {
             c.city,
             c.incident_date,
             c.status,
-            u.first_name || ' ' || u.last_name AS reporter
+            u.first_name || ' ' || u.last_name AS reporter,
+            u.email
         FROM crimes c
         JOIN users u ON c.reporter_id = u.id
         WHERE c.id = $1
