@@ -4,6 +4,7 @@ import cors from "cors";
 import pgclient from "./database.js";
 import authRoutes from "./routes/authRoutes.js";
 import userRouter from "./routes/userRoutes.js";
+import adminRouter from "./routes/adminRoutes.js";
 
 dotenv.config();
 
@@ -19,10 +20,14 @@ app.use("/uploadsImages", express.static("uploadsImages"));
 
 
 //http://localhost:3000/api/auth
-app.use("/api/auth", authRoutes)
+app.use("/api/auth", authRoutes);
 
 //http://localhost:3000/api/user
-app.use("/api/user", userRouter)
+app.use("/api/user", userRouter);
+
+//http://localhost:3000/api/admin
+
+app.use("/api/admin", adminRouter);
 
 //localhost:3000
 app.get("/", (req,res)=> {
